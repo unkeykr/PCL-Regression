@@ -1,0 +1,260 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WritingLoanNumbersIntoExcel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Config" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="testexecution" Type="InArgument(x:String)" />
+    <x:Property Name="testDescription" Type="InArgument(x:String)" />
+    <x:Property Name="portNumber" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,3223</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>WritingLoanNumbersIntoExcel_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WritingLoanNumbersIntoExcel" sap:VirtualizedContainerService.HintSize="897,3158" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="LoanNumber" />
+      <Variable x:TypeArguments="x:Int32" Name="rowCount" />
+      <Variable x:TypeArguments="sd:DataTable" Name="LoanNumbersSheet" />
+      <Variable x:TypeArguments="x:String" Default="51171" Name="sheetName" />
+      <Variable x:TypeArguments="x:String" Name="LoanType" />
+      <Variable x:TypeArguments="x:String" Name="DateOfLoanCreation" />
+      <Variable x:TypeArguments="x:String" Name="LoanCategory" />
+      <Variable x:TypeArguments="x:String" Name="TridNonTrid" />
+      <Variable x:TypeArguments="x:String" Name="Environment" />
+      <Variable x:TypeArguments="x:String" Default="[&quot;M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL Regression\data\&quot;+UserFolder+&quot;\Test results_51171.xlsx&quot;]" Name="ConfigFile" />
+      <Variable x:TypeArguments="x:Int32" Name="Count" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Tstringgrid" />
+      <Variable x:TypeArguments="x:String" Name="Status" />
+      <Variable x:TypeArguments="x:String" Name="Purpose" />
+      <Variable x:TypeArguments="x:String" Name="LoanStatus" />
+      <Variable x:TypeArguments="x:String" Name="missingDetails" />
+      <Variable x:TypeArguments="x:String" Name="loanNumber2" />
+      <Variable x:TypeArguments="x:Boolean" Name="pclender" />
+      <Variable x:TypeArguments="x:String" Name="ULI" />
+      <Variable x:TypeArguments="x:String" Name="url" />
+      <Variable x:TypeArguments="x:String" Default="[System.DateTime.Now.ToString(&quot;dd-mm-yyyy hh-mm-ss&quot;)]" Name="test" />
+      <Variable x:TypeArguments="x:String" Default="TC-01" Name="TC01" />
+      <Variable x:TypeArguments="x:String" Name="UserFolder1" />
+      <Variable x:TypeArguments="x:Boolean" Name="PathExistBool" />
+      <Variable x:TypeArguments="x:String" Name="UserFolder" />
+      <Variable x:TypeArguments="x:String" Name="userName" />
+      <Variable x:TypeArguments="x:Boolean" Name="folderExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="fileExists" />
+      <Variable x:TypeArguments="x:String" Name="fileName" />
+      <Variable x:TypeArguments="x:String" Name="fileLocation" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetEnvironmentVariable DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="855,59" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="UserName" VariableValue="[userName]" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[folderExists]" sap:VirtualizedContainerService.HintSize="855,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[&quot;M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\&quot;+userName]" PathType="Folder" />
+    <If Condition="[folderExists]" sap:VirtualizedContainerService.HintSize="855,329" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Folder already exists&quot;]" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,171" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\&quot;+userName]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign sap:VirtualizedContainerService.HintSize="855,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Test results_"+portNumber+".xlsx"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:PathExists DisplayName="Path Exists" Exists="[fileExists]" sap:VirtualizedContainerService.HintSize="855,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[&quot;M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\&quot;+userName+&quot;\&quot;+fileName]" PathType="File" />
+    <If Condition="[fileExists]" sap:VirtualizedContainerService.HintSize="855,407" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;File already exists&quot;]" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,249" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\&quot;+userName+&quot;\&quot;+fileName]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="False" Path="M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\Upload file\Test results.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign sap:VirtualizedContainerService.HintSize="855,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[fileLocation]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["M:\Business_Units\Information_Technology\QA\Offshore\MM_Automation\PCL_Regression\PCL Regression\data\"+userName+"\"+fileName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetEnvironmentVariable DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="855,59" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_2" Variable="UserName" VariableValue="[UserFolder1]" />
+    <Assign sap:VirtualizedContainerService.HintSize="855,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[UserFolder]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[UserFolder1]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[LoanNumbersSheet]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="855,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[portNumber]" WorkbookPath="[fileLocation]" />
+    <Assign sap:VirtualizedContainerService.HintSize="855,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[rowCount]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[LoanNumbersSheet.Rows.Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="855,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[rowCount+2]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteCell Cell="[&quot;A&quot;+Count.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="855,115" sap2010:WorkflowViewState.IdRef="WriteCell_25" SheetName="[portNumber]" Text="[testDescription]" WorkbookPath="[fileLocation]" />
+    <ui:WriteCell Cell="[&quot;E&quot;+Count.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="855,115" sap2010:WorkflowViewState.IdRef="WriteCell_26" SheetName="[portNumber]" Text="[testexecution]" WorkbookPath="[fileLocation]" />
+    <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="855,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="855,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Library\Utility\Click on loan number.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:ClickText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" FormattedText="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Text 'TIHPageControl'" sap:VirtualizedContainerService.HintSize="855,134" sap2010:WorkflowViewState.IdRef="ClickText_1" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" Text="Loan Number">
+      <ui:ClickText.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickText.CursorPosition>
+      <ui:ClickText.Target>
+        <ui:Target Element="{x:Null}" Id="274bb4f6-d2c3-4fd7-ae75-3d3d57e6e18e" InformativeScreenshot="062186ef38010556159d8cfad4832fe1" Selector="&lt;wnd app='thinihm.exe' cls='TQualificationForm' title='Qualification' /&gt;&lt;wnd cls='TIHPageControl' idx='1' /&gt;">
+          <ui:Target.ClippingRegion>
+            <ui:Region Rectangle="122, 7, 65, 19" />
+          </ui:Target.ClippingRegion>
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:ClickText.Target>
+    </ui:ClickText>
+    <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="855,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="855,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2285b7bc-1836-4fe9-b4dc-9ad1180c0b99" InformativeScreenshot="8050b6913e5284463df14283df5dc233" Selector="&lt;wnd app='thinihm.exe' cls='TQualificationForm' title='Qualification' /&gt;&lt;wnd cls='TDBEdit' idx='7' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[url]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="855,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2285b7bc-1836-4fe9-b4dc-9ad1180c0b99" InformativeScreenshot="8050b6913e5284463df14283df5dc233" Selector="&lt;wnd app='thinihm.exe' cls='TQualificationForm' title='Qualification' /&gt;&lt;wnd cls='TDBEdit' idx='7' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[LoanNumber]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <ui:WriteCell Cell="[&quot;D&quot;+Count.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="855,115" sap2010:WorkflowViewState.IdRef="WriteCell_27" SheetName="[portNumber]" Text="[LoanNumber]" WorkbookPath="[fileLocation]" />
+  </Sequence>
+</Activity>

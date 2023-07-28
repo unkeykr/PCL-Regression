@@ -1,0 +1,1417 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Loan_Creation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Config" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,793</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap:VirtualizedContainerService.HintSize="1167,728" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart DisplayName="MultiLoancreation" sap:VirtualizedContainerService.HintSize="1125,636" sap2010:WorkflowViewState.IdRef="Flowchart_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <av:Point x:Key="ShapeLocation">370,2.5</av:Point>
+          <av:Size x:Key="ShapeSize">60,75</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">400,77.5 400,114.5</av:PointCollection>
+          <x:Double x:Key="Width">1091</x:Double>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Flowchart.StartNode>
+        <x:Reference>__ReferenceID70</x:Reference>
+      </Flowchart.StartNode>
+      <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID26" DisplayName="Type of Loan" Expression="[out_Config(&quot;TypeOfLoanCreation&quot;)]" sap:VirtualizedContainerService.HintSize="74,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_23">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">3,186.5</av:Point>
+            <av:Size x:Key="ShapeSize">74,87</av:Size>
+            <av:PointCollection x:Key="RefinanceConnector">77,251.75 230,251.75 230,484 170,484 170,514</av:PointCollection>
+            <av:PointCollection x:Key="PurchaseConnector">40,273.5 40,303.5 100,303.5 100,374.02</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <FlowStep x:Key="Purchase" x:Name="__ReferenceID66">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">0,374.02</av:Point>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Flowchart sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                <av:PointCollection x:Key="ConnectorLocation">270,40 120,40 120,136.5</av:PointCollection>
+                <x:Double x:Key="Height">1077</x:Double>
+                <x:Double x:Key="Width">1165</x:Double>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Flowchart.StartNode>
+              <x:Reference>__ReferenceID12</x:Reference>
+            </Flowchart.StartNode>
+            <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID12" DisplayName="No.Of Borrowers" Expression="[out_Config(&quot;LoanDecision&quot;)]" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">73,136.5</av:Point>
+                  <av:Size x:Key="ShapeSize">94,87</av:Size>
+                  <av:PointCollection x:Key="RefinanceConnector">89,301.75 250,301.75 250,610 220,610</av:PointCollection>
+                  <av:PointCollection x:Key="PurchaseConnector">52,323.5 52,353.5 110,353.5 110,424.5</av:PointCollection>
+                  <av:PointCollection x:Key="SingleBorrowerConnector">120,223.5 120,286.5</av:PointCollection>
+                  <av:PointCollection x:Key="TwoBorrowerConnector">167,180 197,180 197,126.5 630,126.5 630,156.5</av:PointCollection>
+                  <av:PointCollection x:Key="ThreeBorrowerConnector">143.5,136.5 143.5,106.5 780,106.5 780,176.5</av:PointCollection>
+                  <av:PointCollection x:Key="FourBorrowerConnector">73,180 0,180 0,800 55,800</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="SingleBorrower" x:Name="__ReferenceID0" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">85,286.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">99,311.75 260,311.75 260,620 230,620</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">62,333.5 62,363.5 120,363.5 120,434.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">137,511.75 240,511.75 240,660 210,660</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">137,490 290,490 290,750 260,750</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">78,713.5 78,743.5 100,743.5 100,754</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">155,330 270,330 270,660 210,660</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">85,330 60,330 60,484.5 150,484.5 150,514.5</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">50,514.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanCreation_SingleBorrower_PCL_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">10,634.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\PurchaseMultiLoanCreation_SingleBorrower_PCL_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="TwoBorrower" x:Name="__ReferenceID1" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">595,156.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">595,221.75 565,221.75 565,273.5 595,273.5 595,630 570,630</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">595,200 280,200 280,460 310,460</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">310,434</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanCreationInPCL_TwoBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">370,604</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\PurchaseMultiLoanCreationInPCL_TwoBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="ThreeBorrower" x:Name="__ReferenceID6" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_32">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">745,176.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">119,331.75 280,331.75 280,640 250,640</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">82,353.5 82,383.5 140,383.5 140,454.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">157,531.75 260,531.75 260,680 230,680</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">157,510 310,510 310,770 280,770</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">98,733.5 98,763.5 120,763.5 120,774</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">815,220 920,220 920,464 890,464 890,494</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">745,220 715,220 715,324 660,324 660,380 690,380</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">690,354</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">790,494</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="FourBorrower" x:Name="__ReferenceID9" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_36">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">55,756.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">125,800 330,800 330,854.5</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">125,778.25 155,778.25 155,760 370,760</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">370,734.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\51171\PurchaseMultiLoanCreationInPCL_FourBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">230,854.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\PurchaseMultiLoanCreationInPCL_FourBorrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+            </FlowSwitch>
+            <x:Reference>__ReferenceID0</x:Reference>
+            <x:Reference>__ReferenceID1</x:Reference>
+            <x:Reference>__ReferenceID2</x:Reference>
+            <x:Reference>__ReferenceID3</x:Reference>
+            <x:Reference>__ReferenceID4</x:Reference>
+            <x:Reference>__ReferenceID5</x:Reference>
+            <x:Reference>__ReferenceID6</x:Reference>
+            <x:Reference>__ReferenceID7</x:Reference>
+            <x:Reference>__ReferenceID8</x:Reference>
+            <x:Reference>__ReferenceID9</x:Reference>
+            <x:Reference>__ReferenceID10</x:Reference>
+            <x:Reference>__ReferenceID11</x:Reference>
+          </Flowchart>
+        </FlowStep>
+        <FlowStep x:Key="Refinance" x:Name="__ReferenceID67">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">70,514</av:Point>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Flowchart sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                <av:PointCollection x:Key="ConnectorLocation">270,40 120,40 120,136.5</av:PointCollection>
+                <x:Double x:Key="Height">1151.4707046648689</x:Double>
+                <x:Double x:Key="Width">958.93990808278579</x:Double>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Flowchart.StartNode>
+              <x:Reference>__ReferenceID25</x:Reference>
+            </Flowchart.StartNode>
+            <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID25" DisplayName="No.Of Borrowers" Expression="[out_Config(&quot;LoanDecision&quot;)]" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_22">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">73,136.5</av:Point>
+                  <av:Size x:Key="ShapeSize">94,87</av:Size>
+                  <av:PointCollection x:Key="RefinanceConnector">89,301.75 250,301.75 250,610 220,610</av:PointCollection>
+                  <av:PointCollection x:Key="PurchaseConnector">52,323.5 52,353.5 110,353.5 110,424.5</av:PointCollection>
+                  <av:PointCollection x:Key="SingleBorrowerConnector">120,223.5 120,286.5</av:PointCollection>
+                  <av:PointCollection x:Key="TwoBorrowerConnector">167,180 420,180 420,276.5</av:PointCollection>
+                  <av:PointCollection x:Key="ThreeBorrowerConnector">143.5,136.5 143.5,118.25 515,118.25</av:PointCollection>
+                  <av:PointCollection x:Key="FourBorrowerConnector">73,180 0,180 0,720 25,720</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="SingleBorrower" x:Name="__ReferenceID13" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_20">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">85,286.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">99,311.75 260,311.75 260,620 230,620</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">62,333.5 62,363.5 120,363.5 120,434.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">137,511.75 240,511.75 240,660 210,660</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">137,490 290,490 290,750 260,750</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">78,713.5 78,743.5 100,743.5 100,754</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">155,330 290,330 290,600 260,600</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">85,330 55,330 55,484.5 140,484.5 140,514.5</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">40,514.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoans_SingleBorrower_PCL_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">60,574.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\RefinanceMultiLoans_SingleBorrower_PCL_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="TwoBorrower" x:Name="__ReferenceID14" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">385,276.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">455,320 690,320 690,354.5</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">385,320 355,320 355,490 550,490</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">550,464.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoansPCL_2Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">590,354.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\RefinanceMultiLoansPCL_2Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="ThreeBorrower" x:Name="__ReferenceID19" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_33">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">515,96.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">119,331.75 280,331.75 280,640 250,640</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">82,353.5 82,383.5 140,383.5 140,454.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">157,531.75 260,531.75 260,680 230,680</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">157,510 310,510 310,770 280,770</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">98,733.5 98,763.5 120,763.5 120,774</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">532.5,183.5 532.5,220 690,220</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">550,96.5 550,50 680,50</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID20">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">680,24</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoansPCL_3Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">690,194</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\RefinanceMultiLoansPCL_3Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+              <FlowSwitch x:TypeArguments="x:String" x:Key="FourBorrower" x:Name="__ReferenceID24" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_47">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">25,676.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                    <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                    <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                    <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                    <av:PointCollection x:Key="FundedConnector">60,763.5 60,945.5 300,945.5 300,915.5</av:PointCollection>
+                    <av:PointCollection x:Key="ApplicationConnector">95,698.25 125,698.25 125,780 280,780</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="Application" x:Name="__ReferenceID22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">280,754.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\51171\RefinanceMultiLoansPCL_4Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+                <FlowStep x:Key="Funded" x:Name="__ReferenceID23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">200,864.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_46" UnSafe="False" WorkflowFileName="TestCases\Funded\51171\RefinanceMultiLoansPCL_4Borrower_51171_TC.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </FlowStep>
+              </FlowSwitch>
+            </FlowSwitch>
+            <x:Reference>__ReferenceID13</x:Reference>
+            <x:Reference>__ReferenceID14</x:Reference>
+            <x:Reference>__ReferenceID15</x:Reference>
+            <x:Reference>__ReferenceID16</x:Reference>
+            <x:Reference>__ReferenceID17</x:Reference>
+            <x:Reference>__ReferenceID18</x:Reference>
+            <x:Reference>__ReferenceID19</x:Reference>
+            <x:Reference>__ReferenceID20</x:Reference>
+            <x:Reference>__ReferenceID21</x:Reference>
+            <x:Reference>__ReferenceID22</x:Reference>
+            <x:Reference>__ReferenceID23</x:Reference>
+            <x:Reference>__ReferenceID24</x:Reference>
+          </Flowchart>
+        </FlowStep>
+      </FlowSwitch>
+      <FlowStep x:Name="__ReferenceID70">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">300,114.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">400,165.5 400,216.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Library\Utility\DataInDictionary.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">[out_Config]</InOutArgument>
+            <InArgument x:TypeArguments="s:String[]" x:Key="in_sheetNames">[{"Sheet1"}]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+        <FlowStep.Next>
+          <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID64" DisplayName="Environment" Expression="[out_Config(&quot;Environment&quot;)]" sap:VirtualizedContainerService.HintSize="74,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_31">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">363,216.5</av:Point>
+                <av:Size x:Key="ShapeSize">74,87</av:Size>
+                <av:PointCollection x:Key="51171Connector">363,260 333,260 333,230 77,230</av:PointCollection>
+                <av:PointCollection x:Key="51173Connector">436,260 466,260 466,190 983,190</av:PointCollection>
+                <av:PointCollection x:Key="Case3Connector">337.5,223.5 337.5,419.52 410,419.52</av:PointCollection>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <x:Reference>__ReferenceID26<x:Key>51171</x:Key></x:Reference>
+            <FlowSwitch x:TypeArguments="x:String" x:Key="51173" x:Name="__ReferenceID65" DisplayName="Type of Loan" Expression="[out_Config(&quot;TypeOfLoanCreation&quot;)]" sap:VirtualizedContainerService.HintSize="74,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_30">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">983,146.5</av:Point>
+                  <av:Size x:Key="ShapeSize">74,87</av:Size>
+                  <av:PointCollection x:Key="51173Connector">65,191.75 35,191.75 35,243.5 240,243.5 240,450 210,450</av:PointCollection>
+                  <av:PointCollection x:Key="Case3Connector">117.5,213.5 117.5,243.5 380,243.5 380,419.52 410,419.52</av:PointCollection>
+                  <av:PointCollection x:Key="PurchaseConnector">1057,211.75 1087,211.75 1087,263.5 980,263.5 980,500 950,500</av:PointCollection>
+                  <av:PointCollection x:Key="RefinanceConnector">983,211.75 953,211.75 953,320 760,320</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowStep x:Key="Refinance" x:Name="__ReferenceID68">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">560,294</av:Point>
+                    <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Flowchart sap:VirtualizedContainerService.HintSize="824,1220" sap2010:WorkflowViewState.IdRef="Flowchart_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">270,40 120,40 120,136.5</av:PointCollection>
+                      <x:Double x:Key="Height">1184</x:Double>
+                      <x:Double x:Key="Width">790</x:Double>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Flowchart.StartNode>
+                    <x:Reference>__ReferenceID39</x:Reference>
+                  </Flowchart.StartNode>
+                  <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID39" DisplayName="No.Of Borrowers" Expression="[out_Config(&quot;LoanDecision&quot;)]" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">73,136.5</av:Point>
+                        <av:Size x:Key="ShapeSize">94,87</av:Size>
+                        <av:PointCollection x:Key="RefinanceConnector">89,301.75 250,301.75 250,610 220,610</av:PointCollection>
+                        <av:PointCollection x:Key="PurchaseConnector">52,323.5 52,353.5 110,353.5 110,424.5</av:PointCollection>
+                        <av:PointCollection x:Key="SingleBorrowerConnector">120,223.5 120,286.5</av:PointCollection>
+                        <av:PointCollection x:Key="TwoBorrowerConnector">167,180 360,180 360,276.5</av:PointCollection>
+                        <av:PointCollection x:Key="ThreeBorrowerConnector">167,158.25 197,158.25 197,130 495,130</av:PointCollection>
+                        <av:PointCollection x:Key="FourBorrowerConnector">73,180 0,180 0,736.5 60,736.5 60,766.5</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="SingleBorrower" x:Name="__ReferenceID27" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_24">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">85,286.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">99,311.75 260,311.75 260,620 230,620</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">62,333.5 62,363.5 120,363.5 120,434.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">137,511.75 240,511.75 240,660 210,660</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">137,490 290,490 290,750 260,750</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">78,713.5 78,743.5 100,743.5 100,754</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">155,330 240,330 240,640 210,640</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">85,330 70,330 70,484 100,484 100,514</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID29">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">0,514</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoans_SingleBorrower_PCL73.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID30">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">10,614.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\RefinanceMultiLoans_SingleBorrower_PCL73.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="TwoBorrower" x:Name="__ReferenceID28" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_25">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">325,276.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">395,320 530,320 530,570 500,570</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">325,320 295,320 295,459.5 310,459.5</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">310,434</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoansPCL_2Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID32">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">300,544.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\RefinanceMultiLoansPCL_2Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="ThreeBorrower" x:Name="__ReferenceID33" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_34">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">495,86.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">119,331.75 280,331.75 280,640 250,640</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">82,353.5 82,383.5 140,383.5 140,454.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">157,531.75 260,531.75 260,680 230,680</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">157,510 310,510 310,770 280,770</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">98,733.5 98,763.5 120,763.5 120,774</av:PointCollection>
+                          <av:PointCollection x:Key="InitialDisclosureSendingConnector">465,330 610,330 610,640 580,640</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">495,151.75 420,151.75 420,230 450,230</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">565,130 620,130 620,65.5</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID34">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">450,204.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\RefinanceMultiLoansPCL_3Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID35">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">520,14.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\RefinanceMultiLoansPCL_3Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">[out_Config]</InOutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="FourBorrower" x:Name="__ReferenceID36" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_39">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">25,766.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">60,853.5 60,925.5 250,925.5 250,895.5</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">95,810 240,810 240,765.5</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID37">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">140,714.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\51173\RefinanceMultiLoansPCL_4Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID38">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">150,844.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_48" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\RefinanceMultiLoansPCL_4Borrower_51173.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                  </FlowSwitch>
+                  <x:Reference>__ReferenceID27</x:Reference>
+                  <x:Reference>__ReferenceID28</x:Reference>
+                  <x:Reference>__ReferenceID29</x:Reference>
+                  <x:Reference>__ReferenceID30</x:Reference>
+                  <x:Reference>__ReferenceID31</x:Reference>
+                  <x:Reference>__ReferenceID32</x:Reference>
+                  <x:Reference>__ReferenceID33</x:Reference>
+                  <x:Reference>__ReferenceID34</x:Reference>
+                  <x:Reference>__ReferenceID35</x:Reference>
+                  <x:Reference>__ReferenceID36</x:Reference>
+                  <x:Reference>__ReferenceID37</x:Reference>
+                  <x:Reference>__ReferenceID38</x:Reference>
+                </Flowchart>
+              </FlowStep>
+              <FlowStep x:Key="Purchase" x:Name="__ReferenceID69">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">750,474</av:Point>
+                    <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Flowchart sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">270,40 120,40 120,136.5</av:PointCollection>
+                      <x:Double x:Key="Height">1148</x:Double>
+                      <x:Double x:Key="Width">810</x:Double>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Flowchart.StartNode>
+                    <x:Reference>__ReferenceID63</x:Reference>
+                  </Flowchart.StartNode>
+                  <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID63" DisplayName="No.Of Borrowers" Expression="[out_Config(&quot;LoanDecision&quot;)]" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_29">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">73,136.5</av:Point>
+                        <av:Size x:Key="ShapeSize">94,87</av:Size>
+                        <av:PointCollection x:Key="RefinanceConnector">89,301.75 250,301.75 250,610 220,610</av:PointCollection>
+                        <av:PointCollection x:Key="PurchaseConnector">52,323.5 52,353.5 110,353.5 110,424.5</av:PointCollection>
+                        <av:PointCollection x:Key="SingleBorrowerConnector">120,223.5 120,286.5</av:PointCollection>
+                        <av:PointCollection x:Key="TwoBorrowerConnector">167,180 420,180 420,276.5</av:PointCollection>
+                        <av:PointCollection x:Key="ThreeBorrowerConnector">167,158.25 465,158.25 465,28.25 495,28.25</av:PointCollection>
+                        <av:PointCollection x:Key="FourBorrowerConnector">73,180 0,180 0,766.5 40,766.5 40,796.5</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="SingleBorrower" x:Name="__ReferenceID40" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">85,286.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">99,311.75 260,311.75 260,620 230,620</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">62,333.5 62,363.5 120,363.5 120,434.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">137,511.75 240,511.75 240,660 210,660</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">137,490 290,490 290,750 260,750</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">78,713.5 78,743.5 100,743.5 100,754</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">155,330 250,330 250,700 220,700</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">85,330 70,330 70,484 100,484 100,514</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID42">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">0,514</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoan_SingleBorrower_PCL73.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID43">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">20,674</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoan_SingleBorrower_PCL73.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="TwoBorrower" x:Name="__ReferenceID41" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_28">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">385,276.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">455,320 540,320 540,580 510,580</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">385,320 280,320 280,460 310,460</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID44">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">310,434</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanPCL73-TwoBorrower.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID45">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">310,554.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoanPCL73-TwoBorrower.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="ThreeBorrower" x:Name="__ReferenceID46" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_35">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">495,6.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">119,331.75 280,331.75 280,640 250,640</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">82,353.5 82,383.5 140,383.5 140,454.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">157,531.75 260,531.75 260,680 230,680</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">157,510 310,510 310,770 280,770</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">98,733.5 98,763.5 120,763.5 120,774</av:PointCollection>
+                          <av:PointCollection x:Key="InitialDisclosureSendingConnector">465,330 610,330 610,640 580,640</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">530,93.5 530,123.5 710,123.5 710,55.5</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">512.5,93.5 512.5,167 503,167 503,193.5 590,193.5 590,224.5</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">610,4.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51173_TC.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID48">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">490,224.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51173_TC.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                    <FlowSwitch x:TypeArguments="x:String" x:Key="FourBorrower" x:Name="__ReferenceID49" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_40">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">5,796.5</av:Point>
+                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                          <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                          <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                          <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                          <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                          <av:PointCollection x:Key="FundedConnector">75,861.75 280,861.75 280,904.5</av:PointCollection>
+                          <av:PointCollection x:Key="ApplicationConnector">75,818.25 105,818.25 105,780 240,780</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowStep x:Key="Application" x:Name="__ReferenceID50">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">240,754.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_49" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\51173\PurchaseMultiLoanCreationInPCL_FourBorrower_51173_TC.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                      <FlowStep x:Key="Funded" x:Name="__ReferenceID62">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">180,904.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_58" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoanCreationInPCL_FourBorrower_51173_TC.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </FlowSwitch>
+                  </FlowSwitch>
+                  <x:Reference>__ReferenceID40</x:Reference>
+                  <x:Reference>__ReferenceID41</x:Reference>
+                  <x:Reference>__ReferenceID42</x:Reference>
+                  <x:Reference>__ReferenceID43</x:Reference>
+                  <x:Reference>__ReferenceID44</x:Reference>
+                  <x:Reference>__ReferenceID45</x:Reference>
+                  <x:Reference>__ReferenceID46</x:Reference>
+                  <x:Reference>__ReferenceID47</x:Reference>
+                  <x:Reference>__ReferenceID48</x:Reference>
+                  <x:Reference>__ReferenceID49</x:Reference>
+                  <x:Reference>__ReferenceID50</x:Reference>
+                  <FlowStep>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">50,80</av:Point>
+                        <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Flowchart sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">270,40 120,40 120,136.5</av:PointCollection>
+                          <x:Double x:Key="Height">1148</x:Double>
+                          <x:Double x:Key="Width">810</x:Double>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Flowchart.StartNode>
+                        <x:Reference>__ReferenceID61</x:Reference>
+                      </Flowchart.StartNode>
+                      <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID61" DisplayName="No.Of Borrowers" Expression="[out_Config(&quot;LoanDecision&quot;)]" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_45">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">73,136.5</av:Point>
+                            <av:Size x:Key="ShapeSize">94,87</av:Size>
+                            <av:PointCollection x:Key="RefinanceConnector">89,301.75 250,301.75 250,610 220,610</av:PointCollection>
+                            <av:PointCollection x:Key="PurchaseConnector">52,323.5 52,353.5 110,353.5 110,424.5</av:PointCollection>
+                            <av:PointCollection x:Key="SingleBorrowerConnector">120,223.5 120,286.5</av:PointCollection>
+                            <av:PointCollection x:Key="TwoBorrowerConnector">167,180 420,180 420,276.5</av:PointCollection>
+                            <av:PointCollection x:Key="ThreeBorrowerConnector">167,158.25 465,158.25 465,28.25 495,28.25</av:PointCollection>
+                            <av:PointCollection x:Key="FourBorrowerConnector">73,180 0,180 0,766.5 40,766.5 40,796.5</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <FlowSwitch x:TypeArguments="x:String" x:Key="SingleBorrower" x:Name="__ReferenceID51" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_41">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">85,286.5</av:Point>
+                              <av:Size x:Key="ShapeSize">70,87</av:Size>
+                              <av:PointCollection x:Key="RefinanceConnector">99,311.75 260,311.75 260,620 230,620</av:PointCollection>
+                              <av:PointCollection x:Key="PurchaseConnector">62,333.5 62,363.5 120,363.5 120,434.5</av:PointCollection>
+                              <av:PointCollection x:Key="SingleBorrowerConnector">137,511.75 240,511.75 240,660 210,660</av:PointCollection>
+                              <av:PointCollection x:Key="TwoBorrowerConnector">137,490 290,490 290,750 260,750</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicaionConnector">78,713.5 78,743.5 100,743.5 100,754</av:PointCollection>
+                              <av:PointCollection x:Key="FundedConnector">155,330 250,330 250,700 220,700</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicationConnector">85,330 70,330 70,484 100,484 100,514</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <FlowStep x:Key="Application" x:Name="__ReferenceID53">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">0,514</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_51" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoan_SingleBorrower_PCL73.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                          <FlowStep x:Key="Funded" x:Name="__ReferenceID54">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">20,674</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoan_SingleBorrower_PCL73.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                        </FlowSwitch>
+                        <FlowSwitch x:TypeArguments="x:String" x:Key="TwoBorrower" x:Name="__ReferenceID52" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_42">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">385,276.5</av:Point>
+                              <av:Size x:Key="ShapeSize">70,87</av:Size>
+                              <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                              <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                              <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                              <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                              <av:PointCollection x:Key="FundedConnector">455,320 540,320 540,580 510,580</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicationConnector">385,320 280,320 280,460 310,460</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <FlowStep x:Key="Application" x:Name="__ReferenceID55">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">310,434</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_53" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanPCL73-TwoBorrower.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                          <FlowStep x:Key="Funded" x:Name="__ReferenceID56">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">310,554.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_54" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoanPCL73-TwoBorrower.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                        </FlowSwitch>
+                        <FlowSwitch x:TypeArguments="x:String" x:Key="ThreeBorrower" x:Name="__ReferenceID57" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_43">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">495,6.5</av:Point>
+                              <av:Size x:Key="ShapeSize">70,87</av:Size>
+                              <av:PointCollection x:Key="RefinanceConnector">119,331.75 280,331.75 280,640 250,640</av:PointCollection>
+                              <av:PointCollection x:Key="PurchaseConnector">82,353.5 82,383.5 140,383.5 140,454.5</av:PointCollection>
+                              <av:PointCollection x:Key="SingleBorrowerConnector">157,531.75 260,531.75 260,680 230,680</av:PointCollection>
+                              <av:PointCollection x:Key="TwoBorrowerConnector">157,510 310,510 310,770 280,770</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicaionConnector">98,733.5 98,763.5 120,763.5 120,774</av:PointCollection>
+                              <av:PointCollection x:Key="InitialDisclosureSendingConnector">465,330 610,330 610,640 580,640</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicationConnector">530,93.5 530,123.5 710,123.5 710,55.5</av:PointCollection>
+                              <av:PointCollection x:Key="FundedConnector">512.5,93.5 512.5,167 503,167 503,193.5 590,193.5 590,224.5</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <FlowStep x:Key="Application" x:Name="__ReferenceID58">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">610,4.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_55" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51173_TC.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                          <FlowStep x:Key="Funded" x:Name="__ReferenceID59">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">490,224.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_56" UnSafe="False" WorkflowFileName="TestCases\Funded\51173\PurchaseMultiLoanCreationInPCL_ThreeBorrower_51173_TC.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config" />
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </FlowStep>
+                        </FlowSwitch>
+                        <FlowSwitch x:TypeArguments="x:String" x:Key="FourBorrower" x:Name="__ReferenceID60" DisplayName="Loanstatus" Expression="[out_Config(&quot;LoanStatus&quot;)]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_44">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">5,796.5</av:Point>
+                              <av:Size x:Key="ShapeSize">70,87</av:Size>
+                              <av:PointCollection x:Key="RefinanceConnector">109,321.75 270,321.75 270,630 240,630</av:PointCollection>
+                              <av:PointCollection x:Key="PurchaseConnector">72,343.5 72,373.5 130,373.5 130,444.5</av:PointCollection>
+                              <av:PointCollection x:Key="SingleBorrowerConnector">147,521.75 250,521.75 250,670 220,670</av:PointCollection>
+                              <av:PointCollection x:Key="TwoBorrowerConnector">147,500 300,500 300,760 270,760</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicaionConnector">88,723.5 88,753.5 110,753.5 110,764</av:PointCollection>
+                              <av:PointCollection x:Key="FundedConnector">165,340 260,340 260,710 230,710</av:PointCollection>
+                              <av:PointCollection x:Key="ApplicationConnector">95,340 80,340 80,494 110,494 110,524</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </FlowSwitch>
+                      </FlowSwitch>
+                      <x:Reference>__ReferenceID51</x:Reference>
+                      <x:Reference>__ReferenceID52</x:Reference>
+                      <x:Reference>__ReferenceID53</x:Reference>
+                      <x:Reference>__ReferenceID54</x:Reference>
+                      <x:Reference>__ReferenceID55</x:Reference>
+                      <x:Reference>__ReferenceID56</x:Reference>
+                      <x:Reference>__ReferenceID57</x:Reference>
+                      <x:Reference>__ReferenceID58</x:Reference>
+                      <x:Reference>__ReferenceID59</x:Reference>
+                      <x:Reference>__ReferenceID60</x:Reference>
+                      <FlowStep>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">240,754.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_57" UnSafe="False" WorkflowFileName="TestCases\ApplicationStatus\PurchaseMultiLoan_SingleBorrower_PCL73.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                      </FlowStep>
+                    </Flowchart>
+                  </FlowStep>
+                  <x:Reference>__ReferenceID62</x:Reference>
+                </Flowchart>
+              </FlowStep>
+            </FlowSwitch>
+          </FlowSwitch>
+        </FlowStep.Next>
+      </FlowStep>
+      <x:Reference>__ReferenceID64</x:Reference>
+      <x:Reference>__ReferenceID65</x:Reference>
+      <x:Reference>__ReferenceID66</x:Reference>
+      <x:Reference>__ReferenceID67</x:Reference>
+      <x:Reference>__ReferenceID68</x:Reference>
+      <x:Reference>__ReferenceID69</x:Reference>
+    </Flowchart>
+  </Sequence>
+</Activity>
